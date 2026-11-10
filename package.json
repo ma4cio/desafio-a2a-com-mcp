@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/node": "2.1.2",
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "4.6.7"
+  },
+  "name": "a-ponte",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "mcp": "node servidor-mcp/server.mjs",
+    "agente": "node agente/server.mjs",
+    "test": "node check.mjs",
+    "test:extra": "node test-extra.mjs"
+  }
+}
