@@ -67,12 +67,14 @@ Em `agente/server.mjs`, `executar` recebe o resultado MCP bruto e transforma `in
 
 `dados/`, `exemplos/` e `validador/` são os originais, sem alterações. A aprovação automática não substitui a revisão dos critérios manuais: confira os IDs distintos no retry e o trace-id no stderr. Para reproduzir manualmente, use os corpos em `exemplos/wire/` com IDs de Task e estados retornados na sua própria execução.
 
+A auditoria requisito a requisito e as particularidades do SDK estão em [AUDITORIA.md](AUDITORIA.md). Execute também `node test-audit.mjs` para conferir os casos complementares.
+
 ## Saída do validador
 
-Abaixo, a saída integral da última execução; logs do servidor seguem separadamente no stderr.
+Saída integral da execução após a auditoria:
 
 ```text
-trace-id desta execucao: 062c637aa0fa8d650cfd2d0ae06e5bf1
+trace-id desta execucao: e7ea46706402ae2ac802bc53caa7b5ee
 procure esse valor no stderr do servidor MCP para conferir a propagacao do traceparent.
 
 PASS 01 tools/list traz as tres tools

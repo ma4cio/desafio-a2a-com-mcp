@@ -82,6 +82,8 @@ async function dispatch(b, trace) {
   return {task};
 }
 const card = {name:'Central de Salas',description:'Reserva salas da Hill Valley Tech.',version:'1.0.0',supportedInterfaces:[{url:`http://127.0.0.1:${port}/a2a`,protocolBinding:'JSONRPC',protocolVersion:'1.0'}],capabilities:{streaming:false,pushNotifications:false,extendedAgentCard:false},defaultInputModes:['text/plain'],defaultOutputModes:['text/plain'],skills:[{id:'reservar-sala',name:'Reservar sala',description:'Reserva e solicita alternativas em conflitos.',tags:['salas','agenda']}]};
+card.provider = {organization:'Hill Valley Tech',url:'https://hillvalley.example'};
+Object.assign(card.skills[0],{inputModes:['text/plain'],outputModes:['text/plain'],examples:['reservar sala=sala-garagem inicio=2026-11-03T14:00:00-03:00 fim=2026-11-03T15:00:00-03:00 responsavel=Marty']});
 createServer(async (req,res)=>{
   const send=(status,body)=>{res.writeHead(status,{'Content-Type':'application/json'});res.end(JSON.stringify(body));};
   if(req.method==='GET' && req.url==='/.well-known/agent-card.json') return send(200,card);
